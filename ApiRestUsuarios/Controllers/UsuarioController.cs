@@ -38,11 +38,11 @@ namespace ApiRestUsuarios.Controllers
         } 
         
         [HttpPost]
-        public ActionResult Post([FromBody]TipoUsuario tipo)
+        public ActionResult Post([FromBody]Usuario usuario)
         {
             try
             {
-                conexion.TipoUsuario.Add(tipo);
+                conexion.Usuario.Add(usuario);
                 conexion.SaveChanges();
                 return Ok();
             }
@@ -53,13 +53,13 @@ namespace ApiRestUsuarios.Controllers
         }
 
         [HttpPut]
-        public ActionResult Put(int id,[FromBody] TipoUsuario tipo)
+        public ActionResult Put(int id,[FromBody] Usuario usuario)
         {
             try
             {
-                if(tipo.Id==id)
+                if(usuario.Id==id)
                 {
-                    conexion.Entry(tipo).State = EntityState.Modified;
+                    conexion.Entry(usuario).State = EntityState.Modified;
                     conexion.SaveChanges();
                     
                 }
@@ -75,10 +75,10 @@ namespace ApiRestUsuarios.Controllers
         public ActionResult Delete(int id)
         {
 
-            var tipo = conexion.TipoUsuario.FirstOrDefault(t => t.Id == id);
-            if (tipo!=null)
+            var usuario = conexion.Usuario.FirstOrDefault(t => t.Id == id);
+            if (usuario!=null)
             {
-                conexion.Remove(tipo);
+                conexion.Remove(usuario);
                 conexion.SaveChanges();
                 return Ok();
             }
