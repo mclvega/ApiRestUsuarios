@@ -28,10 +28,10 @@ namespace ApiRestUsuarios.Controllers
             return conexion.TipoUsuario.ToList();
         }
 
-        [HttpGet("{id}")]
-        public TipoUsuario Get(string id)
+        [HttpGet("{Id}")]
+        public TipoUsuario Get(string Id)
         {
-            int cod = int.Parse(id);
+            int cod = int.Parse(Id);
             var tipo = conexion.TipoUsuario.FirstOrDefault(u => u.Id == cod);
             return tipo;
         }

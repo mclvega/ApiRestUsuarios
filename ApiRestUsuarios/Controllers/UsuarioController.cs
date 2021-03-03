@@ -29,11 +29,11 @@ namespace ApiRestUsuarios.Controllers
             return conexion.Usuario.ToList();
         }
         
-        [HttpGet("{id}")]
-        public Usuario Get(int id)
+        [HttpGet("{Id}")]
+        public Usuario Get(int Id)
         {
             
-            var usuario = conexion.Usuario.FirstOrDefault(u => u.Id == id);
+            var usuario = conexion.Usuario.FirstOrDefault(u => u.Id == Id);
             return usuario;
         } 
         
@@ -52,7 +52,7 @@ namespace ApiRestUsuarios.Controllers
             }
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
         public ActionResult Put(int id,[FromBody] Usuario usuario)
         {
             try

@@ -25,7 +25,8 @@ namespace ApiRestUsuarios
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<Conexion.ConexionBDD>(opciones => opciones.UseSqlServer(Configuration.GetConnectionString("ConnectionString")));
+            services.AddDbContext<Conexion.ConexionBDD>(opciones => 
+            opciones.UseSqlServer(Configuration.GetConnectionString("ConnectionString")));
             services.AddControllers();
         }
 
